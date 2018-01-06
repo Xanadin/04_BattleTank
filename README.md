@@ -18,3 +18,6 @@ Sculpted mountain barrier / boundary
 
 * Lesson 107
 Painted landscape with layered material
+
+* Lesson 108
+Created and painted a cell shaded low poly landscape
