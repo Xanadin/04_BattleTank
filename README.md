@@ -12,3 +12,6 @@ Create Unreal project and tried adding landscape
 
 * Lesson 105
 Created a quite large terrain
+
+* Lesson 106
+Sculpted mountain barrier / boundary
