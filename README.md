@@ -15,3 +15,6 @@ Created a quite large terrain
 
 * Lesson 106
 Sculpted mountain barrier / boundary
+
+* Lesson 107
+Painted landscape with layered material
