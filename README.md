@@ -21,3 +21,6 @@ Painted landscape with layered material
 
 * Lesson 108
 Created and painted a cell shaded low poly landscape
+
+* Lesson 109
+Landscape from heigthmaps import/export
