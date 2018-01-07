@@ -33,3 +33,6 @@ Overridden Game Mode and made Tank BP the new default pawn
 
 * Lesson 114
 Created buggy input controls for camera rotation
+
+* Lesson 115
+Fixed (partially) camera movement by adding a component dedicated to one of the rotations
