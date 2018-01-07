@@ -24,3 +24,6 @@ Created and painted a cell shaded low poly landscape
 
 * Lesson 109
 Landscape from heigthmaps import/export
+
+* Lesson 112
+Tank creation : fbx import, multimesh assembly, socket positioning
