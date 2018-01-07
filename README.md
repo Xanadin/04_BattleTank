@@ -30,3 +30,6 @@ Tank creation : fbx import, multimesh assembly, socket positioning
 
 * Lesson 113
 Overridden Game Mode and made Tank BP the new default pawn
+
+* Lesson 114
+Created buggy input controls for camera rotation
