@@ -27,3 +27,6 @@ Landscape from heigthmaps import/export
 
 * Lesson 112
 Tank creation : fbx import, multimesh assembly, socket positioning
+
+* Lesson 113
+Overridden Game Mode and made Tank BP the new default pawn
