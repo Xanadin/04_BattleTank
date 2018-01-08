@@ -51,3 +51,6 @@ Added functionality to Start button, created game quit event, added controller s
 
 * Lesson 120
 Game packaging for Win64 and transfer player control from UI to game on menu Start
+
+* Lesson 121
+Reparented Tank_BP from Pawn to C++ class Tank derived from Pawn. Same with TankPlayerController_BP from PlayerController to C++ class TankPlayerController
