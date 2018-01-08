@@ -54,3 +54,6 @@ Game packaging for Win64 and transfer player control from UI to game on menu Sta
 
 * Lesson 121
 Reparented Tank_BP from Pawn to C++ class Tank derived from Pawn. Same with TankPlayerController_BP from PlayerController to C++ class TankPlayerController
+
+* Lesson 122
+Basic code checks that PlayerController controls the correct Pawn
