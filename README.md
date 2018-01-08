@@ -42,3 +42,6 @@ Setup primitive aiming point (Hello world UI)
 
 * Lesson 117
 Created main menu as a separate level and set UI in its level blueprint
+
+* Lesson 118
+Created font and button for main menu UI
