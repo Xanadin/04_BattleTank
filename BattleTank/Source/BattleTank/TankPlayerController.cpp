@@ -10,15 +10,14 @@ ATank* ATankPlayerController::GetControlledTank() const
 void ATankPlayerController::BeginPlay()
 {
 	Super::BeginPlay();
-	UE_LOG(LogTemp, Warning, TEXT("PlayerController Begin Play"));
 	ATank* controlledTank = GetControlledTank();
 	if (GetControlledTank() != nullptr)
 	{
-		UE_LOG(LogTemp, Warning, TEXT("TankPossessed is %s"), *(controlledTank->GetName()));
+		UE_LOG(LogTemp, Warning, TEXT("TankPossessed by player is %s"), *(controlledTank->GetName()));
 	}
 	else
 	{
-		UE_LOG(LogTemp, Warning, TEXT("Missing pawn"));
+		UE_LOG(LogTemp, Warning, TEXT("Missing pawn on player controller"));
 	}
 }
 

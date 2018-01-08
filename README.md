@@ -57,3 +57,6 @@ Reparented Tank_BP from Pawn to C++ class Tank derived from Pawn. Same with Tank
 
 * Lesson 122
 Basic code checks that PlayerController controls the correct Pawn
+
+* Lesson 125
+Created AI controller class that controls all other tanks (one controller per tank) excluded the player spawned
