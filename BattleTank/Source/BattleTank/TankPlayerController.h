@@ -16,8 +16,11 @@ class BATTLETANK_API ATankPlayerController : public APlayerController
 	GENERATED_BODY()
 
 public:
-	ATank* GetControlledTank() const;
+	virtual void BeginPlay() override;
+	virtual void Tick(float DeltaTime) override;
 
-	void BeginPlay() override;
-	void Tick(float DeltaTime) override;
+	ATank* mControlledTank = nullptr;
+	// Raycast using UI element and move the turrer where crosshair intersect
+	void AimTowardsCrosshair();
+	ATank* GetControlledTank() const;
 };

@@ -9,7 +9,6 @@ ATank* ATankAiController::GetControlledTank() const
 	if (controlledPawn != nullptr)
 	{
 		ATank* controlledTank = Cast<ATank>(controlledPawn);
-		UE_LOG(LogTemp, Warning, TEXT("TankPossessed AI is %s"), *(controlledTank->GetName()));
 		return controlledTank;
 	}
 	else

@@ -63,3 +63,6 @@ Created AI controller class that controls all other tanks (one controller per ta
 
 * Lesson 126
 The AI can find which tank is the player's
+
+* Lesson 127
+Pseudo code for player aiming inside player controlled tick function
