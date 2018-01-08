@@ -45,3 +45,6 @@ Created main menu as a separate level and set UI in its level blueprint
 
 * Lesson 118
 Created font and button for main menu UI
+
+* Lesson 119
+Added functionality to Start button, created game quit event, added controller support
