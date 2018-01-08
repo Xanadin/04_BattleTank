@@ -48,3 +48,6 @@ Created font and button for main menu UI
 
 * Lesson 119
 Added functionality to Start button, created game quit event, added controller support
+
+* Lesson 120
+Game packaging for Win64 and transfer player control from UI to game on menu Start
