@@ -60,3 +60,6 @@ Basic code checks that PlayerController controls the correct Pawn
 
 * Lesson 125
 Created AI controller class that controls all other tanks (one controller per tank) excluded the player spawned
+
+* Lesson 126
+The AI can find which tank is the player's
