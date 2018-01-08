@@ -39,3 +39,6 @@ Fixed (partially) camera movement by adding a component dedicated to one of the 
 
 * Lesson 116
 Setup primitive aiming point (Hello world UI)
+
+* Lesson 117
+Created main menu as a separate level and set UI in its level blueprint
