@@ -36,3 +36,6 @@ Created buggy input controls for camera rotation
 
 * Lesson 115
 Fixed (partially) camera movement by adding a component dedicated to one of the rotations
+
+* Lesson 116
+Setup primitive aiming point (Hello world UI)
