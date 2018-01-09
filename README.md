@@ -87,3 +87,6 @@ Created C++ component class AimingComponent, attached to actor via C++ (not the 
 
 * Lesson 134
 Called C++ function from Tank BP to get ref to Barrel static mesh, passed it to Aiming Component so that it can use it as projectile start position
+
+* Lesson 135
+Added variable for projectile speed v0 and prepared to use function for balistic calculation
