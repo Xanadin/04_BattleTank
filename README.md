@@ -75,3 +75,6 @@ Viewport dimensions and crosshair pixel coordinates
 
 * Lesson 130
 DeProjection = ScreenPoint to CameraPosition direction vector
+
+* Lesson 131
+LineTrace by Visibility and got HitLocation from Camera Position

@@ -1,7 +1,7 @@
 // Fill out your copyright notice in the Description page of Project Settings.
 
 #include "TankPlayerController.h"
-
+#include "Engine/World.h"
 
 ATank* ATankPlayerController::GetControlledTank() const
 {
@@ -37,10 +37,9 @@ void ATankPlayerController::AimTowardsCrosshair()
 {
 	// Raycast and get world intersection
 	FVector hitLocation;
-	if (GetSightRayHitLocation(hitLocation))
-	{ 
-		// TODO Trail the barrel rowards this point
-	}
+	GetSightRayHitLocation(hitLocation);
+	UE_LOG(LogTemp, Warning, TEXT("HitLocation = %s"), *hitLocation.ToString());
+	// TODO Trail the barrel rowards this point
 	return;
 }
 
@@ -53,8 +52,7 @@ bool ATankPlayerController::GetSightRayHitLocation(FVector & HitLocation) const
 	FVector lookDirection;
 	if (GetLookDirection(screenLocation, lookDirection))
 	{
-		UE_LOG(LogTemp, Warning, TEXT("Crosshair direction = %s"), *lookDirection.ToString());
-		return true;
+		return GetLookVectorHitLocation(lookDirection, HitLocation);
 	}
 	return false;
 }
@@ -62,8 +60,26 @@ bool ATankPlayerController::GetSightRayHitLocation(FVector & HitLocation) const
 bool ATankPlayerController::GetLookDirection(FVector2D ScreenLocation, FVector& LookDirection) const
 {
 	// Camera position
-	FVector cameraWorldLocation; // not used
+	FVector cameraWorldLocation;
 	FVector crosshairToCameraDirection;
 	// "De-project the screen position of the crosshair to a world direction
 	return DeprojectScreenPositionToWorld(ScreenLocation.X, ScreenLocation.Y, cameraWorldLocation, LookDirection);
+}
+
+bool ATankPlayerController::GetLookVectorHitLocation(FVector LookDirection, FVector& HitLocation) const
+{
+	FHitResult rayCastHit;
+	// Raycast
+	FVector startLocation = PlayerCameraManager->GetCameraLocation();
+	FVector lineTraceEnd = startLocation + LookDirection * LineTraceRange;
+	if (GetWorld()->LineTraceSingleByChannel(rayCastHit, startLocation, lineTraceEnd, ECollisionChannel::ECC_Visibility))
+	{
+		HitLocation = rayCastHit.Location;
+		return true;
+	}
+	else
+	{
+		HitLocation = FVector(0.0f);
+		return false;
+	}	
 }
