@@ -38,6 +38,7 @@ void ATankPlayerController::AimTowardsCrosshair()
 	// Raycast and get world intersection
 	FVector hitLocation;
 	GetSightRayHitLocation(hitLocation);
+	if(!mControlledTank) return;
 	mControlledTank->AimAt(hitLocation);
 	return;
 }

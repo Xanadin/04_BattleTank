@@ -81,3 +81,6 @@ LineTrace by Visibility and got HitLocation from Camera Position
 
 * Lesson 132
 Get AI and player to call AimAt method of respective Tank class
+
+* Lesson 133
+Created C++ component class AimingComponent, attached to actor via C++ (not the editor) and moved aiming debug code there
