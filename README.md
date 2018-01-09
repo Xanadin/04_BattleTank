@@ -66,3 +66,6 @@ The AI can find which tank is the player's
 
 * Lesson 127
 Pseudo code for player aiming inside player controlled tick function
+
+* Lesson 128
+Minor code aiming improvement

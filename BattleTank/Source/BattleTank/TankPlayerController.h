@@ -19,8 +19,14 @@ public:
 	virtual void BeginPlay() override;
 	virtual void Tick(float DeltaTime) override;
 
-	ATank* mControlledTank = nullptr;
+private:
+	ATank * mControlledTank = nullptr;
+	ATank* GetControlledTank() const;
+
 	// Raycast using UI element and move the turrer where crosshair intersect
 	void AimTowardsCrosshair();
-	ATank* GetControlledTank() const;
+
+	// Get intersection of crosshair with world
+	bool GetSightRayHitLocation(FVector& HitLocation) const;
+
 };

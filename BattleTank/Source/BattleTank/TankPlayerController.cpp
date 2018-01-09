@@ -35,6 +35,26 @@ void ATankPlayerController::Tick(float DeltaTime)
 void ATankPlayerController::AimTowardsCrosshair()
 {
 	// Raycast and get world intersection
-	// Trail the barrel rowards this point
+	FVector hitLocation;
+	if (GetSightRayHitLocation(hitLocation))
+	{ 
+		UE_LOG(LogTemp, Warning, TEXT("HitLocation = %s"), *hitLocation.ToString());
+	}
+	// TODO Trail the barrel rowards this point
 	return;
+}
+
+bool ATankPlayerController::GetSightRayHitLocation(FVector & HitLocation) const
+{
+	HitLocation = FVector(0.0f);
+	// Get Ray start based on player position
+	// GetWorld()->GetFirstPlayerController()->GetPlayerViewPoint(mPlayerViewpointLocation, mPlayerViewpointRotation);
+
+	// Get Ray end based on line length (cannon reach)
+	// mLineTraceEnd = mPlayerViewpointLocation + mPlayerViewpointRotation.Vector() * mReach;
+
+	// Raycast
+	// FCollisionQueryParams queryParams(FName(TEXT("")), false, GetOwner());
+	// GetWorld()->LineTraceSingleByObjectType(HitLocation, mPlayerViewpointLocation, mLineTraceEnd, FCollisionObjectQueryParams(ECollisionChannel::ECC_PhysicsBody), queryParams);
+	return true;
 }
