@@ -3,6 +3,14 @@
 #include "TankAiController.h"
 #include "Engine/World.h"
 
+void ATankAiController::Tick(float DeltaTime)
+{
+	Super::Tick(DeltaTime);
+	// Move towards the player
+	mControlledTank->AimAt(GetPlayerControlledTank()->GetActorLocation());
+	// Fire if ready
+}
+
 ATank* ATankAiController::GetControlledTank() const
 {
 	auto controlledPawn = GetPawn();
@@ -24,7 +32,6 @@ ATank * ATankAiController::GetPlayerControlledTank() const
 	if (playerControlledPawn != nullptr)
 	{
 		ATank* playerControlledTank = Cast<ATank>(playerControlledPawn);
-		UE_LOG(LogTemp, Warning, TEXT("TankPossessed AI %s has found player tank %s"), *(mControlledTank->GetName()), *(playerControlledTank->GetName()));
 		return playerControlledTank;
 	}
 	else

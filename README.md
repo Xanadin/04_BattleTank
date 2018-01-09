@@ -78,3 +78,6 @@ DeProjection = ScreenPoint to CameraPosition direction vector
 
 * Lesson 131
 LineTrace by Visibility and got HitLocation from Camera Position
+
+* Lesson 132
+Get AI and player to call AimAt method of respective Tank class

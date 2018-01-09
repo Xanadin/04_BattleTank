@@ -38,8 +38,7 @@ void ATankPlayerController::AimTowardsCrosshair()
 	// Raycast and get world intersection
 	FVector hitLocation;
 	GetSightRayHitLocation(hitLocation);
-	UE_LOG(LogTemp, Warning, TEXT("HitLocation = %s"), *hitLocation.ToString());
-	// TODO Trail the barrel rowards this point
+	mControlledTank->AimAt(hitLocation);
 	return;
 }
 
