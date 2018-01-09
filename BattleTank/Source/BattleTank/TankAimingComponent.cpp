@@ -3,6 +3,7 @@
 #include "TankAimingComponent.h"
 #include "GameFramework/Actor.h"
 #include "Engine/World.h"
+#include "Components/StaticMeshComponent.h"
 #include "DrawDebugHelpers.h"
 
 // Sets default values for this component's properties
@@ -18,7 +19,13 @@ UTankAimingComponent::UTankAimingComponent()
 
 void UTankAimingComponent::AimAt(FVector HitLocation)
 {
-	DrawDebugLine(GetWorld(), GetOwner()->GetActorLocation(), HitLocation, FColor::Red);
+	
+	DrawDebugLine(GetWorld(), mBarrel->GetComponentLocation(), HitLocation, FColor::Red);
+}
+
+void UTankAimingComponent::SetBarrel(UStaticMeshComponent * Barrel)
+{
+	mBarrel = Barrel;
 }
 
 // Called when the game starts

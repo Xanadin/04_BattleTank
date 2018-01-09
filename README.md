@@ -84,3 +84,6 @@ Get AI and player to call AimAt method of respective Tank class
 
 * Lesson 133
 Created C++ component class AimingComponent, attached to actor via C++ (not the editor) and moved aiming debug code there
+
+* Lesson 134
+Called C++ function from Tank BP to get ref to Barrel static mesh, passed it to Aiming Component so that it can use it as projectile start position
