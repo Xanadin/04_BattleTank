@@ -23,6 +23,7 @@ void ATankPlayerController::BeginPlay()
 {
 	Super::BeginPlay();
 	mControlledTank = GetControlledTank();
+	
 }
 
 void ATankPlayerController::Tick(float DeltaTime)
@@ -38,15 +39,21 @@ void ATankPlayerController::AimTowardsCrosshair()
 	FVector hitLocation;
 	if (GetSightRayHitLocation(hitLocation))
 	{ 
-		UE_LOG(LogTemp, Warning, TEXT("HitLocation = %s"), *hitLocation.ToString());
+		// TODO Trail the barrel rowards this point
 	}
-	// TODO Trail the barrel rowards this point
 	return;
 }
 
 bool ATankPlayerController::GetSightRayHitLocation(FVector & HitLocation) const
 {
 	HitLocation = FVector(0.0f);
+
+	// Find crosshair position in viewport pixel coordinates
+	int32 viewportSizeX, viewportSizeY;
+	GetViewportSize(viewportSizeX, viewportSizeY);
+	auto screenLocation = FVector2D(CrossHairXLocation * viewportSizeX, CrossHairYLocation * viewportSizeY);
+	UE_LOG(LogTemp, Warning, TEXT("HitLocation = %s"), *screenLocation.ToString());
+	// "De-project the screen position of the crosshair to a world direction
 	// Get Ray start based on player position
 	// GetWorld()->GetFirstPlayerController()->GetPlayerViewPoint(mPlayerViewpointLocation, mPlayerViewpointRotation);
 

@@ -69,3 +69,6 @@ Pseudo code for player aiming inside player controlled tick function
 
 * Lesson 128
 Minor code aiming improvement
+
+* Lesson 129
+Viewport dimensions and crosshair pixel coordinates

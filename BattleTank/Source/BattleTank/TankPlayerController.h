@@ -29,4 +29,9 @@ private:
 	// Get intersection of crosshair with world
 	bool GetSightRayHitLocation(FVector& HitLocation) const;
 
+	UPROPERTY(EditAnywhere)
+	float CrossHairXLocation = 0.5f;
+
+	UPROPERTY(EditAnywhere)
+	float CrossHairYLocation = 0.33333f;
 };
