@@ -72,3 +72,6 @@ Minor code aiming improvement
 
 * Lesson 129
 Viewport dimensions and crosshair pixel coordinates
+
+* Lesson 130
+DeProjection = ScreenPoint to CameraPosition direction vector

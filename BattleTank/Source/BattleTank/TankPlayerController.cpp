@@ -46,22 +46,24 @@ void ATankPlayerController::AimTowardsCrosshair()
 
 bool ATankPlayerController::GetSightRayHitLocation(FVector & HitLocation) const
 {
-	HitLocation = FVector(0.0f);
-
 	// Find crosshair position in viewport pixel coordinates
 	int32 viewportSizeX, viewportSizeY;
 	GetViewportSize(viewportSizeX, viewportSizeY);
 	auto screenLocation = FVector2D(CrossHairXLocation * viewportSizeX, CrossHairYLocation * viewportSizeY);
-	UE_LOG(LogTemp, Warning, TEXT("HitLocation = %s"), *screenLocation.ToString());
+	FVector lookDirection;
+	if (GetLookDirection(screenLocation, lookDirection))
+	{
+		UE_LOG(LogTemp, Warning, TEXT("Crosshair direction = %s"), *lookDirection.ToString());
+		return true;
+	}
+	return false;
+}
+
+bool ATankPlayerController::GetLookDirection(FVector2D ScreenLocation, FVector& LookDirection) const
+{
+	// Camera position
+	FVector cameraWorldLocation; // not used
+	FVector crosshairToCameraDirection;
 	// "De-project the screen position of the crosshair to a world direction
-	// Get Ray start based on player position
-	// GetWorld()->GetFirstPlayerController()->GetPlayerViewPoint(mPlayerViewpointLocation, mPlayerViewpointRotation);
-
-	// Get Ray end based on line length (cannon reach)
-	// mLineTraceEnd = mPlayerViewpointLocation + mPlayerViewpointRotation.Vector() * mReach;
-
-	// Raycast
-	// FCollisionQueryParams queryParams(FName(TEXT("")), false, GetOwner());
-	// GetWorld()->LineTraceSingleByObjectType(HitLocation, mPlayerViewpointLocation, mLineTraceEnd, FCollisionObjectQueryParams(ECollisionChannel::ECC_PhysicsBody), queryParams);
-	return true;
+	return DeprojectScreenPositionToWorld(ScreenLocation.X, ScreenLocation.Y, cameraWorldLocation, LookDirection);
 }
