@@ -49,7 +49,7 @@ void UTankAimingComponent::MoveBarrel(FVector AimVector)
 	// Find angle between barrel direction and launch direction
 	if (!mBarrel) return;
 	auto BarrelRotator = mBarrel->GetForwardVector().Rotation();
-	auto AimAsRotator = AimVector.Rotation;
+	auto AimAsRotator = AimVector.Rotation();
 	auto DeltaRotator = AimAsRotator - BarrelRotator;
 	// Rotate barrel some way to launch direction
 }
