@@ -102,3 +102,6 @@ Improved code organization using forward declarations
 
 * Lesson 140
 Refactored Barrel Static Mesh Component into C++ TankBarrel class and substituted as instance in Tank Blueprint
+
+* Lesson 141
+Considered more cafefully which classes should tick and which not. Moved debugging info and discovered bug in trajectory calculation function
