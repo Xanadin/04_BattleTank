@@ -105,3 +105,6 @@ Refactored Barrel Static Mesh Component into C++ TankBarrel class and substitute
 
 * Lesson 141
 Considered more cafefully which classes should tick and which not. Moved debugging info and discovered bug in trajectory calculation function
+
+* Lesson 142
+Fixed trajectory calculation function parameters

@@ -28,7 +28,12 @@ void UTankAimingComponent::AimAt(FVector HitLocation, float LaunchSpeed)
 																		startLocation,
 																		HitLocation,
 																		LaunchSpeed,
-																		ESuggestProjVelocityTraceOption::DoNotTrace);
+																		false,
+																		0,
+																		0,
+																		ESuggestProjVelocityTraceOption::DoNotTrace,
+		FCollisionResponseParams::DefaultResponseParam, TArray<AActor*>(), true
+																					);
 	float time = GetWorld()->GetTimeSeconds();
 	if (bHaveAimSolution)
 	{
