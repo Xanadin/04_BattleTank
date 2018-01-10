@@ -6,7 +6,9 @@
 #include "Components/ActorComponent.h"
 #include "TankAimingComponent.generated.h"	// Must be the last include
 
+class UTankBarrel;
 
+// Trajectory calculation
 UCLASS( ClassGroup=(Custom), meta=(BlueprintSpawnableComponent) )
 class BATTLETANK_API UTankAimingComponent : public UActorComponent
 {
@@ -17,12 +19,12 @@ public:
 	UTankAimingComponent();
 	void AimAt(FVector HitLocation, float LaunchSpeed);
 
-	void SetBarrel(UStaticMeshComponent* Barrel);
+	void SetBarrel(UTankBarrel* Barrel);
 protected:
 
 private:
 	// TODO Set Turret Reference
-	UStaticMeshComponent* mBarrel = nullptr;
+	UTankBarrel* mBarrel = nullptr;
 	void MoveBarrel(FVector AimVector);
 	
 };

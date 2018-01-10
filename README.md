@@ -99,3 +99,6 @@ Created method to rotate barrel towards aim direction
 
 * Lesson 138
 Improved code organization using forward declarations
+
+* Lesson 140
+Refactored Barrel Static Mesh Component into C++ TankBarrel class and substituted as instance in Tank Blueprint
