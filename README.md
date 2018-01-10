@@ -96,3 +96,6 @@ Used helper method to find optimal projectile direction to hit target
 
 * Lesson 137
 Created method to rotate barrel towards aim direction
+
+* Lesson 138
+Improved code organization using forward declarations

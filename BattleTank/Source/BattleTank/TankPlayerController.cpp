@@ -1,7 +1,8 @@
 // Fill out your copyright notice in the Description page of Project Settings.
 
-#include "TankPlayerController.h"
+#include "TankPlayerController.h" // Required as FIRST include in 4.17+ versions
 #include "Engine/World.h"
+#include "Tank.h"
 
 ATank* ATankPlayerController::GetControlledTank() const
 {

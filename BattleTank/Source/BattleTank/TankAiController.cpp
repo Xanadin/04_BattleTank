@@ -1,7 +1,8 @@
 // Fill out your copyright notice in the Description page of Project Settings.
 
-#include "TankAiController.h"
+#include "TankAiController.h" // Required as FIRST include in 4.17+ versions
 #include "Engine/World.h"
+#include "Tank.h"
 
 void ATankAiController::Tick(float DeltaTime)
 {

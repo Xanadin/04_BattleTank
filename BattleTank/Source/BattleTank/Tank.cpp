@@ -1,7 +1,7 @@
 // Fill out your copyright notice in the Description page of Project Settings.
 
-#include "Tank.h"
-
+#include "Tank.h" // Required as FIRST include in 4.17+ versions
+#include "TankAimingComponent.h"
 
 // Sets default values
 ATank::ATank()

@@ -4,7 +4,7 @@
 
 #include "CoreMinimal.h"
 #include "Components/ActorComponent.h"
-#include "TankAimingComponent.generated.h"
+#include "TankAimingComponent.generated.h"	// Must be the last include
 
 
 UCLASS( ClassGroup=(Custom), meta=(BlueprintSpawnableComponent) )
