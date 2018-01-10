@@ -6,6 +6,7 @@
 #include "DrawDebugHelpers.h"
 #include "Kismet/GameplayStatics.h"
 #include "TankBarrel.h"
+#include "TankTurret.h"
 
 // Sets default values for this component's properties
 UTankAimingComponent::UTankAimingComponent()
@@ -53,6 +54,11 @@ void UTankAimingComponent::SetBarrel(UTankBarrel * Barrel)
 	mBarrel = Barrel;
 }
 
+void UTankAimingComponent::SetTurret(UTankTurret* Turret)
+{
+	mTurret = Turret;
+}
+
 void UTankAimingComponent::MoveBarrel(FVector AimVector)
 {
 	// Find angle between barrel direction and launch direction
@@ -61,5 +67,5 @@ void UTankAimingComponent::MoveBarrel(FVector AimVector)
 	auto AimAsRotator = AimVector.Rotation();
 	auto DeltaRotator = AimAsRotator - BarrelRotator;
 	mBarrel->Elevate(DeltaRotator.Pitch);
+	mTurret->Rotate(DeltaRotator.Yaw);
 }
-

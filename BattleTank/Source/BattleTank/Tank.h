@@ -7,6 +7,7 @@
 #include "Tank.generated.h"	// Must be the last include
 
 class UTankBarrel;
+class UTankTurret;
 class UTankAimingComponent;
 
 UCLASS()
@@ -23,6 +24,9 @@ public:
 	UFUNCTION(BlueprintCallable, Category = Setup)
 	void SetBarrelReference(UTankBarrel* Barrel);
 
+	UFUNCTION(BlueprintCallable, Category = Setup)
+	void SetTurretReference(UTankTurret* Turret);
+
 protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
@@ -32,7 +36,7 @@ protected:
 private:	
 
 	UPROPERTY(EditAnywhere, Category = Firing)
-	float LaunchSpeed = 4000.0f; // TODO find sensible default
+	float LaunchSpeed = 4000.0f;
 
 	// Called to bind functionality to input
 	virtual void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;

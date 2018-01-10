@@ -7,6 +7,7 @@
 #include "TankAimingComponent.generated.h"	// Must be the last include
 
 class UTankBarrel;
+class UTankTurret;
 
 // Trajectory calculation
 UCLASS( ClassGroup=(Custom), meta=(BlueprintSpawnableComponent) )
@@ -20,11 +21,13 @@ public:
 	void AimAt(FVector HitLocation, float LaunchSpeed);
 
 	void SetBarrel(UTankBarrel* Barrel);
+	void SetTurret(UTankTurret* Turret);
 protected:
 
 private:
-	// TODO Set Turret Reference
+
 	UTankBarrel* mBarrel = nullptr;
+	UTankTurret* mTurret = nullptr;
+
 	void MoveBarrel(FVector AimVector);
-	
 };

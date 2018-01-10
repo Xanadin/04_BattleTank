@@ -111,3 +111,6 @@ Fixed trajectory calculation function parameters
 
 * Lesson 143
 Rotate barrel mesh if solution found to reach launch direction
+
+* Lesson 145
+Made the same as above for the turret
