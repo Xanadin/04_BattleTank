@@ -24,17 +24,16 @@ void UTankAimingComponent::AimAt(FVector HitLocation, float LaunchSpeed)
 	if (!mBarrel) return;
 	FVector launchVelocity;
 	FVector startLocation = mBarrel->GetSocketLocation(FName(TEXT("Projectile")));
-	if (UGameplayStatics::SuggestProjectileVelocity(this,
-													launchVelocity,
-													startLocation,
-													HitLocation,
-													LaunchSpeed,
-													false,
-													0, 
-													0,
-													ESuggestProjVelocityTraceOption::DoNotTrace))
+	bool bHaveAimSolution = UGameplayStatics::SuggestProjectileVelocity(this,
+																		launchVelocity,
+																		startLocation,
+																		HitLocation,
+																		LaunchSpeed,
+																		ESuggestProjVelocityTraceOption::DoNotTrace);
+	if (bHaveAimSolution)
 	{
 		FVector launchDirection = launchVelocity.GetSafeNormal();
+		MoveBarrel(launchDirection);
 		DrawDebugLine(GetWorld(), startLocation, HitLocation, FColor::Red);
 	}
 	return;
@@ -45,21 +44,13 @@ void UTankAimingComponent::SetBarrel(UStaticMeshComponent * Barrel)
 	mBarrel = Barrel;
 }
 
-// Called when the game starts
-void UTankAimingComponent::BeginPlay()
+void UTankAimingComponent::MoveBarrel(FVector AimVector)
 {
-	Super::BeginPlay();
-
-	// ...
-	
-}
-
-
-// Called every frame
-void UTankAimingComponent::TickComponent(float DeltaTime, ELevelTick TickType, FActorComponentTickFunction* ThisTickFunction)
-{
-	Super::TickComponent(DeltaTime, TickType, ThisTickFunction);
-
-	// ...
+	// Find angle between barrel direction and launch direction
+	if (!mBarrel) return;
+	auto BarrelRotator = mBarrel->GetForwardVector().Rotation();
+	auto AimAsRotator = AimVector.Rotation;
+	auto DeltaRotator = AimAsRotator - BarrelRotator;
+	// Rotate barrel some way to launch direction
 }
 

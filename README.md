@@ -93,3 +93,6 @@ Added variable for projectile speed v0 and prepared to use function for balistic
 
 * Lesson 136
 Used helper method to find optimal projectile direction to hit target
+
+* Lesson 137
+Created method to rotate barrel towards aim direction
