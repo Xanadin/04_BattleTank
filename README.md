@@ -108,3 +108,6 @@ Considered more cafefully which classes should tick and which not. Moved debuggi
 
 * Lesson 142
 Fixed trajectory calculation function parameters
+
+* Lesson 143
+Rotate barrel mesh if solution found to reach launch direction
