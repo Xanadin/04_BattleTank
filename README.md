@@ -90,3 +90,6 @@ Called C++ function from Tank BP to get ref to Barrel static mesh, passed it to 
 
 * Lesson 135
 Added variable for projectile speed v0 and prepared to use function for balistic calculation
+
+* Lesson 136
+Used helper method to find optimal projectile direction to hit target

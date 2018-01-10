@@ -13,6 +13,7 @@ ATank::ATank()
 
 void ATank::AimAt(FVector HitLocation)
 {
+
 	mTankAimingComponent->AimAt(HitLocation, LaunchSpeed);
 }
 

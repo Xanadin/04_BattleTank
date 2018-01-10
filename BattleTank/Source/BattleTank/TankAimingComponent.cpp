@@ -3,8 +3,10 @@
 #include "TankAimingComponent.h"
 #include "GameFramework/Actor.h"
 #include "Engine/World.h"
-#include "Components/StaticMeshComponent.h"
 #include "DrawDebugHelpers.h"
+#include "Kismet/GameplayStatics.h"
+#include "Components/StaticMeshComponent.h"
+
 
 // Sets default values for this component's properties
 UTankAimingComponent::UTankAimingComponent()
@@ -19,7 +21,23 @@ UTankAimingComponent::UTankAimingComponent()
 
 void UTankAimingComponent::AimAt(FVector HitLocation, float LaunchSpeed)
 {
-	DrawDebugLine(GetWorld(), mBarrel->GetComponentLocation(), HitLocation, FColor::Red);
+	if (!mBarrel) return;
+	FVector launchVelocity;
+	FVector startLocation = mBarrel->GetSocketLocation(FName(TEXT("Projectile")));
+	if (UGameplayStatics::SuggestProjectileVelocity(this,
+													launchVelocity,
+													startLocation,
+													HitLocation,
+													LaunchSpeed,
+													false,
+													0, 
+													0,
+													ESuggestProjVelocityTraceOption::DoNotTrace))
+	{
+		FVector launchDirection = launchVelocity.GetSafeNormal();
+		DrawDebugLine(GetWorld(), startLocation, HitLocation, FColor::Red);
+	}
+	return;
 }
 
 void UTankAimingComponent::SetBarrel(UStaticMeshComponent * Barrel)
