@@ -33,18 +33,16 @@ void UTankAimingComponent::AimAt(FVector HitLocation, float LaunchSpeed)
 																		0,
 																		0,
 																		ESuggestProjVelocityTraceOption::DoNotTrace,
-		FCollisionResponseParams::DefaultResponseParam, TArray<AActor*>(), true
-																					);
-	float time = GetWorld()->GetTimeSeconds();
+																		FCollisionResponseParams::DefaultResponseParam,
+																		TArray<AActor*>(),
+																		true);
 	if (bHaveAimSolution)
 	{
 		FVector launchDirection = launchVelocity.GetSafeNormal();
 		MoveBarrel(launchDirection);
-		UE_LOG(LogTemp, Warning, TEXT("%f : Trajectory solution found"), time);
 	}
 	else
 	{
-		UE_LOG(LogTemp, Warning, TEXT("%f : Trajectory solution not found"), time);
 	}
 	return;
 }

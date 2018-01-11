@@ -10,7 +10,6 @@ ATank* ATankPlayerController::GetControlledTank() const
 	if (controlledPawn != nullptr)
 	{
 		ATank* controlledTank = Cast<ATank>(controlledPawn);
-		UE_LOG(LogTemp, Warning, TEXT("TankPossessed by player is %s"), *(controlledTank->GetName()));
 		return controlledTank;
 	}
 	else
