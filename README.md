@@ -120,3 +120,6 @@ Create firing action and projectile C++ Class + BP
 
 * Lesson 150
 Used SpawnActor() to spawn projectiles
+
+* Lesson 151
+Enable firing on player tank by attaching a existing (Unreal framework) projectile movement component to projectile class
