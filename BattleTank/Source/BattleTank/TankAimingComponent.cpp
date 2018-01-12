@@ -35,7 +35,7 @@ void UTankAimingComponent::AimAt(FVector HitLocation, float LaunchSpeed)
 																		ESuggestProjVelocityTraceOption::DoNotTrace,
 																		FCollisionResponseParams::DefaultResponseParam,
 																		TArray<AActor*>(),
-																		true);
+																		false);
 	if (bHaveAimSolution)
 	{
 		FVector launchDirection = launchVelocity.GetSafeNormal();

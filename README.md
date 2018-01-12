@@ -117,3 +117,6 @@ Made the same as above for the turret
 
 * Lesson 146
 Create firing action and projectile C++ Class + BP
+
+* Lesson 150
+Used SpawnActor() to spawn projectiles
