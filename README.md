@@ -123,3 +123,6 @@ Used SpawnActor() to spawn projectiles
 
 * Lesson 151
 Enable firing on player tank by attaching a existing (Unreal framework) projectile movement component to projectile class
+
+* Lesson 152
+Made the AI fire and introduced reload time

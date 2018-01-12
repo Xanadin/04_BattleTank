@@ -29,7 +29,7 @@ public:
 	void SetTurretReference(UTankTurret* Turret);
 
 	UFUNCTION(BlueprintCallable)
-	void OnFire();
+	void Fire();
 
 protected:
 	// Called when the game starts or when spawned
@@ -50,5 +50,8 @@ private:
 
 	// Local reference for projectile spawning
 	UTankBarrel* mBarrel = nullptr;
+
+	float mReloadTimeInSeconds = 3;
+	double mLastFireTime = 0;
 	
 };

@@ -10,7 +10,7 @@ void ATankAiController::Tick(float DeltaTime)
 	// Move towards the player
 	if (!mControlledTank) return;
 	mControlledTank->AimAt(GetPlayerControlledTank()->GetActorLocation());
-	// Fire if ready
+	mControlledTank->Fire(); // TODO don't fire every frame
 }
 
 ATank* ATankAiController::GetControlledTank() const
