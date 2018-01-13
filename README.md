@@ -129,3 +129,6 @@ Made the AI fire and introduced reload time
 
 * Lesson 153
 Discuss the difference between edit anywhere and defauts only
+
+* Lesson 154
+Deleted all collision meshes simple and complex on tanks and substituted with a single box in tankBP. Added quit button on main menu
