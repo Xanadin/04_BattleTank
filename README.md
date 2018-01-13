@@ -126,3 +126,6 @@ Enable firing on player tank by attaching a existing (Unreal framework) projecti
 
 * Lesson 152
 Made the AI fire and introduced reload time
+
+* Lesson 153
+Discuss the difference between edit anywhere and defauts only

@@ -29,13 +29,13 @@ private:
 	// Get intersection of crosshair with world
 	bool GetSightRayHitLocation(FVector& HitLocation) const;
 
-	UPROPERTY(EditAnywhere)
+	UPROPERTY(EditDefaultsOnly)
 	float CrossHairXLocation = 0.5f;
 
-	UPROPERTY(EditAnywhere)
-	float CrossHairYLocation = 0.33333f;
+	UPROPERTY(EditDefaultsOnly)
+	float CrossHairYLocation = 0.3f;
 
-	UPROPERTY(EditAnywhere)
+	UPROPERTY(EditDefaultsOnly)
 	float LineTraceRange = 1000000.0f;
 
 	bool GetLookDirection(FVector2D ScreenLocation, FVector& LookDirection) const;

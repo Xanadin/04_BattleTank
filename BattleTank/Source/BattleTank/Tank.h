@@ -42,7 +42,10 @@ private:
 	UPROPERTY(EditAnywhere, Category = Firing)
 	float LaunchSpeed = 4000.0f;
 
-	UPROPERTY(EditDefaultsOnly, Category = Firing)
+	UPROPERTY(EditAnywhere, Category = Firing) // EditAnywhere means you can have different values on individual instances
+	float mReloadTimeInSeconds = 3;
+
+	UPROPERTY(EditDefaultsOnly, Category = Firing)	// DefaultsOnly means you can edit only on the archetype and not on individual instances
 	TSubclassOf<AProjectile> ProjectileBlueprint;
 
 	// Called to bind functionality to input
@@ -51,7 +54,6 @@ private:
 	// Local reference for projectile spawning
 	UTankBarrel* mBarrel = nullptr;
 
-	float mReloadTimeInSeconds = 3;
 	double mLastFireTime = 0;
 	
 };

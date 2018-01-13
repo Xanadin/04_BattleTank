@@ -35,10 +35,10 @@ void ATankPlayerController::Tick(float DeltaTime)
 
 void ATankPlayerController::AimTowardsCrosshair()
 {
+	if (!mControlledTank) return;
 	// Raycast and get world intersection
 	FVector hitLocation;
 	GetSightRayHitLocation(hitLocation);
-	if(!mControlledTank) return;
 	mControlledTank->AimAt(hitLocation);
 	return;
 }
@@ -61,7 +61,6 @@ bool ATankPlayerController::GetLookDirection(FVector2D ScreenLocation, FVector& 
 {
 	// Camera position
 	FVector cameraWorldLocation;
-	FVector crosshairToCameraDirection;
 	// "De-project the screen position of the crosshair to a world direction
 	return DeprojectScreenPositionToWorld(ScreenLocation.X, ScreenLocation.Y, cameraWorldLocation, LookDirection);
 }
@@ -79,7 +78,7 @@ bool ATankPlayerController::GetLookVectorHitLocation(FVector LookDirection, FVec
 	}
 	else
 	{
-		HitLocation = FVector(0.0f);
+		HitLocation = FVector::ZeroVector;
 		return false;
 	}	
 }
