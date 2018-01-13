@@ -135,3 +135,6 @@ Deleted all collision meshes simple and complex on tanks and substituted with a 
 
 * Lesson 155
 Added C++ track class and substituted it to previous static mesh in tankBP. Added left and right throttle controls on mapped to control triggers.
+
+* Lesson 156
+Applied force on each track when throttle is pressed to make tank move

@@ -1,6 +1,6 @@
 // Fill out your copyright notice in the Description page of Project Settings.
 
-#include "Projectile.h"
+#include "Projectile.h" // Required as FIRST include in 4.17+ versions
 #include "GameFramework/ProjectileMovementComponent.h"
 
 // Sets default values
