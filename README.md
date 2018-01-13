@@ -141,3 +141,6 @@ Applied force on each track when throttle is pressed to make tank move
 
 * Lesson 157
 Override physics material on tracks reducing friction from 0.7 to 0.3
+
+* Lesson 158
+Created TankMovementComponent based on NavMovementComponent to drive ranks with left stick or WASD. It also include support for AI patfinding
