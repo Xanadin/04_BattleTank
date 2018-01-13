@@ -138,3 +138,6 @@ Added C++ track class and substituted it to previous static mesh in tankBP. Adde
 
 * Lesson 156
 Applied force on each track when throttle is pressed to make tank move
+
+* Lesson 157
+Override physics material on tracks reducing friction from 0.7 to 0.3

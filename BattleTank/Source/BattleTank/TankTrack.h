@@ -21,6 +21,6 @@ public:
 	
 	// Max Force per track in Newton
 	UPROPERTY(EditAnywhere)
-	float mMaxDrivingForce = 400000;
+	float mMaxDrivingForce = 40000000;
 	
 };
