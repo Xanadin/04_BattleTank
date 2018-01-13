@@ -4,7 +4,7 @@
 
 #include "CoreMinimal.h"
 #include "GameFramework/Actor.h"
-#include "Projectile.generated.h"
+#include "Projectile.generated.h"	// Must be the last include
 
 class UProjectileMovementComponent;
 

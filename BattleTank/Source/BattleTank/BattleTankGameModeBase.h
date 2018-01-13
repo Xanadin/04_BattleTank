@@ -4,7 +4,7 @@
 
 #include "CoreMinimal.h"
 #include "GameFramework/GameModeBase.h"
-#include "BattleTankGameModeBase.generated.h"
+#include "BattleTankGameModeBase.generated.h"	// Must be the last include
 
 /**
  * 

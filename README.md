@@ -132,3 +132,6 @@ Discuss the difference between edit anywhere and defauts only
 
 * Lesson 154
 Deleted all collision meshes simple and complex on tanks and substituted with a single box in tankBP. Added quit button on main menu
+
+* Lesson 155
+Added C++ track class and substituted it to previous static mesh in tankBP. Added left and right throttle controls on mapped to control triggers.
