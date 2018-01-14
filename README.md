@@ -156,3 +156,6 @@ Implemented turning left / right in a similar way
 
 * Lesson 163
 Created navmesh for AI and overridden function to move it
+
+* Lesson 164
+Supplied Throttle values for AI tank movement
