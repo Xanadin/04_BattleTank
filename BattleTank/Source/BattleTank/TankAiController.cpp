@@ -7,10 +7,18 @@
 void ATankAiController::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
-	// Move towards the player
+
 	if (!mControlledTank) return;
-	mControlledTank->AimAt(GetPlayerControlledTank()->GetActorLocation());
-	mControlledTank->Fire(); // TODO don't fire every frame
+	ATank* playerTank = Cast<ATank>(GetWorld()->GetFirstPlayerController()->GetPawn());
+	if (playerTank)
+	{
+		// Move towards the player
+		MoveToActor(playerTank, mAcceptanceRadius); // TODO check radius is in centimeters
+		// Fire at player
+		mControlledTank->AimAt(playerTank->GetActorLocation());
+		mControlledTank->Fire(); // TODO don't fire every frame
+	}
+	return;
 }
 
 ATank* ATankAiController::GetControlledTank() const
@@ -28,24 +36,8 @@ ATank* ATankAiController::GetControlledTank() const
 	}
 }
 
-ATank * ATankAiController::GetPlayerControlledTank() const
-{
-	auto playerControlledPawn = GetWorld()->GetFirstPlayerController()->GetPawn();
-	if (playerControlledPawn != nullptr)
-	{
-		ATank* playerControlledTank = Cast<ATank>(playerControlledPawn);
-		return playerControlledTank;
-	}
-	else
-	{
-		UE_LOG(LogTemp, Warning, TEXT("Can't find player tank"));
-		return nullptr;
-	}
-}
-
 void ATankAiController::BeginPlay()
 {
 	Super::BeginPlay();
 	mControlledTank = GetControlledTank();
-	GetPlayerControlledTank();
 }

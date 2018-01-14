@@ -3,7 +3,7 @@
 #include "TankMovementComponent.h" // Required as FIRST include in 4.17+ versions
 #include "TankTrack.h"
 
-void UTankMovementComponent::InitializeComponent(UTankTrack* LeftTrack, UTankTrack* RightTrack)
+void UTankMovementComponent::InitComponent(UTankTrack* LeftTrack, UTankTrack* RightTrack)
 {
 	mLeftTrack = LeftTrack;
 	mRightTrack = RightTrack;
@@ -25,6 +25,12 @@ void UTankMovementComponent::IntendTurnRight(float Throw)
 	mLeftTrack->SetThrottle(Throw);
 	mRightTrack->SetThrottle(-Throw);
 	// TODO Prevent double speed using double control
+	return;
+}
+
+void UTankMovementComponent::RequestDirectMove(const FVector & MoveVelocity, bool bForceMaxSpeed)
+{
+	UE_LOG(LogTemp, Warning, TEXT("%s move velocity : %s"), *(MoveVelocity.ToString()), *(GetOwner()->GetName()));
 	return;
 }
 
