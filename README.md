@@ -144,3 +144,6 @@ Override physics material on tracks reducing friction from 0.7 to 0.3
 
 * Lesson 158
 Created TankMovementComponent based on NavMovementComponent to drive ranks with left stick or WASD. It also include support for AI patfinding
+
+* Lesson 159
+Made the movement component in tankBP visible in BP so that now its methods can be called from blueprint
