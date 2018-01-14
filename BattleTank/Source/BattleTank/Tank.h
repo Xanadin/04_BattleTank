@@ -38,10 +38,6 @@ protected:
 	virtual void BeginPlay() override;
 
 	UTankAimingComponent* mTankAimingComponent = nullptr;
-
-	UPROPERTY(BlueprintReadOnly)
-	UTankMovementComponent* mTankMovementComponent = nullptr;
-
 private:	
 
 	UPROPERTY(EditAnywhere, Category = Firing)
