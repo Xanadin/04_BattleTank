@@ -5,7 +5,6 @@
 
 void UTankMovementComponent::InitializeComponent(UTankTrack* LeftTrack, UTankTrack* RightTrack)
 {
-	if (!LeftTrack || !RightTrack) return;
 	mLeftTrack = LeftTrack;
 	mRightTrack = RightTrack;
 	return;
@@ -13,9 +12,18 @@ void UTankMovementComponent::InitializeComponent(UTankTrack* LeftTrack, UTankTra
 
 void UTankMovementComponent::IntendMoveForward(float Throw)
 {
-	UE_LOG(LogTemp, Warning, TEXT("Intend move forward throw: %f"), Throw);
+	if (!mLeftTrack || !mRightTrack) return;
 	mLeftTrack->SetThrottle(Throw); 
 	mRightTrack->SetThrottle(Throw);
+	// TODO Prevent double speed using double control
+	return;
+}
+
+void UTankMovementComponent::IntendTurnRight(float Throw)
+{
+	if (!mLeftTrack || !mRightTrack) return;
+	mLeftTrack->SetThrottle(Throw);
+	mRightTrack->SetThrottle(-Throw);
 	// TODO Prevent double speed using double control
 	return;
 }

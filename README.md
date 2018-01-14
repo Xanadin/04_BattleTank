@@ -150,3 +150,6 @@ Made the movement component in tankBP visible in BP so that now its methods can 
 
 * Lesson 160
 Binded movement component by spawning a reference to it instead of having a pointer in the tank c++ class. Used it to bind both tracks to movement component and wrote code to move forward and backwards
+
+* Lesson 161
+Implemented turning left / right in a similar way
