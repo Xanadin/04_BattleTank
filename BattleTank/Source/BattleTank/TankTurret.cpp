@@ -1,4 +1,4 @@
-// Fill out your copyright notice in the Description page of Project Settings.
+// Nessun copyright, sto facendo solo pratica
 
 #include "TankTurret.h" // Required as FIRST include in 4.17+ versions
 #include "Engine/World.h"

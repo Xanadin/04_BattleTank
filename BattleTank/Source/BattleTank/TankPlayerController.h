@@ -1,4 +1,4 @@
-// Fill out your copyright notice in the Description page of Project Settings.
+// Nessun copyright, sto facendo solo pratica
 
 #pragma once
 
@@ -19,9 +19,12 @@ protected:
 	virtual void BeginPlay() override;
 	virtual void Tick(float DeltaTime) override;
 
+	// Protected, so available to derived BP
+	UFUNCTION(BlueprintCallable, Category = Setup)
+	ATank* GetControlledTank() const;
+
 private:
 	ATank * mControlledTank = nullptr;
-	ATank* GetControlledTank() const;
 
 	// Raycast using UI element and move the turrer where crosshair intersect
 	void AimTowardsCrosshair();

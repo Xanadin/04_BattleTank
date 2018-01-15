@@ -1,4 +1,4 @@
-// Fill out your copyright notice in the Description page of Project Settings.
+// Nessun copyright, sto facendo solo pratica
 
 #include "TankMovementComponent.h" // Required as FIRST include in 4.17+ versions
 #include "TankTrack.h"
@@ -38,7 +38,6 @@ void UTankMovementComponent::RequestDirectMove(const FVector & MoveVelocity, boo
 	float rightThrow = FVector::DotProduct(forwardIntention, tankRight);
 	IntendMoveForward(forwardThrow);
 	IntendTurnRight(rightThrow);
-	// UE_LOG(LogTemp, Warning, TEXT("%s move velocity : %s"), *(forwardIntention.ToString()), *(GetOwner()->GetName()));
 	return;
 }
 

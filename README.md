@@ -159,3 +159,6 @@ Created navmesh for AI and overridden function to move it
 
 * Lesson 164
 Supplied Throttle values for AI tank movement
+
+* Lesson 167
+Prepared binding of crosshair color to reloading status
