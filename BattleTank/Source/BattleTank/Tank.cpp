@@ -10,26 +10,22 @@
 // Sets default values
 ATank::ATank()
 {
+	UE_LOG(LogTemp, Warning, TEXT("DONKEY : Tank %s C++ constructor called"), *GetName());
  	// Set this pawn to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
 	PrimaryActorTick.bCanEverTick = false;	// Tick() turned off
-	mTankAimingComponent = CreateDefaultSubobject<UTankAimingComponent>(FName(TEXT("Aiming Component")));
+}
+
+// Called when the game starts or when spawned
+void ATank::BeginPlay()
+{
+	UE_LOG(LogTemp, Warning, TEXT("DONKEY : Tank %s C++ BeginPlay called"), *GetName());
+	Super::BeginPlay(); // Needed for BP BeginPlay to get called
 }
 
 void ATank::AimAt(FVector HitLocation)
 {
-
+	if (!mTankAimingComponent) return;
 	mTankAimingComponent->AimAt(HitLocation, LaunchSpeed);
-}
-
-void ATank::SetBarrelReference(UTankBarrel* Barrel)
-{
-	mBarrel = Barrel;
-	mTankAimingComponent->SetBarrel(Barrel);
-}
-
-void ATank::SetTurretReference(UTankTurret * Turret)
-{
-	mTankAimingComponent->SetTurret(Turret);
 }
 
 void ATank::Fire()
@@ -47,16 +43,3 @@ void ATank::Fire()
 	// Spawn a projectile at socket location
 	
 }
-
-// Called when the game starts or when spawned
-void ATank::BeginPlay()
-{
-	Super::BeginPlay();
-}
-
-// Called to bind functionality to input
-void ATank::SetupPlayerInputComponent(UInputComponent* PlayerInputComponent)
-{
-	Super::SetupPlayerInputComponent(PlayerInputComponent);
-}
-

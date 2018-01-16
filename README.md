@@ -162,3 +162,6 @@ Supplied Throttle values for AI tank movement
 
 * Lesson 167
 Prepared binding of crosshair color to reloading status
+
+* Lesson 170
+Refactoring and debugging

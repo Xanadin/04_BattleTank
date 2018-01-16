@@ -24,12 +24,6 @@ public:
 
 	void AimAt(FVector HitLocation);
 
-	UFUNCTION(BlueprintCallable, Category = Setup)
-	void SetBarrelReference(UTankBarrel* Barrel);
-
-	UFUNCTION(BlueprintCallable, Category = Setup)
-	void SetTurretReference(UTankTurret* Turret);
-
 	UFUNCTION(BlueprintCallable)
 	void Fire();
 
@@ -41,20 +35,17 @@ protected:
 	UTankAimingComponent* mTankAimingComponent = nullptr;
 private:	
 
-	UPROPERTY(EditAnywhere, Category = Firing)
+	UPROPERTY(EditAnywhere, Category = "Firing")
 	float LaunchSpeed = 4000.0f;
 
-	UPROPERTY(EditAnywhere, Category = Firing) // EditAnywhere means you can have different values on individual instances
+	UPROPERTY(EditAnywhere, Category = "Firing") // EditAnywhere means you can have different values on individual instances
 	float mReloadTimeInSeconds = 3;
 
-	UPROPERTY(EditDefaultsOnly, Category = Firing)	// DefaultsOnly means you can edit only on the archetype and not on individual instances
+	UPROPERTY(EditDefaultsOnly, Category = "Firing")	// DefaultsOnly means you can edit only on the archetype and not on individual instances
 	TSubclassOf<AProjectile> ProjectileBlueprint;
 
-	// Called to bind functionality to input
-	virtual void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;
-
 	// Local reference for projectile spawning
-	UTankBarrel* mBarrel = nullptr;
+	UTankBarrel* mBarrel = nullptr;	// TODO Remove
 
 	double mLastFireTime = 0;
 	

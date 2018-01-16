@@ -20,7 +20,7 @@ protected:
 	virtual void Tick(float DeltaTime) override;
 
 	// Protected, so available to derived BP
-	UFUNCTION(BlueprintCallable, Category = Setup)
+	UFUNCTION(BlueprintCallable, Category = "Setup")
 	ATank* GetControlledTank() const;
 
 private:
