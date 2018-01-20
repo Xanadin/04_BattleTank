@@ -18,13 +18,13 @@ UTankAimingComponent::UTankAimingComponent()
 	// ...
 }
 
-void UTankAimingComponent::InitComponent(UTankTurret * Turret, UTankBarrel * Barrel)
+void UTankAimingComponent::InitComponent()
 {
-	mTurret = Turret;
-	mBarrel = Barrel;
+	mTurret = GetOwner()->FindComponentByClass<UTankTurret>();
+	mBarrel = GetOwner()->FindComponentByClass<UTankBarrel>();
 }
 
-void UTankAimingComponent::AimAt(FVector HitLocation, float LaunchSpeed)
+void UTankAimingComponent::AimAt(FVector HitLocation)
 {
 	if (!ensure(mBarrel)) return;
 	FVector launchVelocity;

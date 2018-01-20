@@ -10,19 +10,13 @@
 ATank::ATank()
 {
 	PrimaryActorTick.bCanEverTick = false;	// Tick() turned off
+	mBarrel = FindComponentByClass<UTankBarrel>();
 }
 
 // Called when the game starts or when spawned
 void ATank::BeginPlay()
 {
 	Super::BeginPlay(); // Needed for BP BeginPlay to get called
-	mTankAimingComponent = FindComponentByClass<UTankAimingComponent>();
-}
-
-void ATank::AimAt(FVector HitLocation)
-{
-	if (!ensure(mTankAimingComponent)) return;
-	mTankAimingComponent->AimAt(HitLocation, LaunchSpeed);
 }
 
 void ATank::Fire()

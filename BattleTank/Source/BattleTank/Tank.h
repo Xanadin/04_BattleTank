@@ -8,7 +8,6 @@
 
 class UTankBarrel;
 class AProjectile;
-class UTankAimingComponent;
 
 UCLASS()
 class BATTLETANK_API ATank : public APawn
@@ -19,8 +18,6 @@ public:
 	// Sets default values for this pawn's properties
 	ATank();
 
-	void AimAt(FVector HitLocation);
-
 	UFUNCTION(BlueprintCallable)
 	void Fire();
 
@@ -28,8 +25,6 @@ protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
 
-	UPROPERTY(BlueprintReadOnly)
-	UTankAimingComponent* mTankAimingComponent = nullptr;
 private:	
 	// TODO remove once Fire is move to AimingComponent
 	UPROPERTY(EditAnywhere, Category = "Firing")

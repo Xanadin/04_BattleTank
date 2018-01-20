@@ -23,11 +23,8 @@ protected:
 	virtual void BeginPlay() override;
 	virtual void Tick(float DeltaTime) override;
 
-	UFUNCTION(BlueprintImplementableEvent, Category = "Setup")
-	void FoundAimingComponent(UTankAimingComponent* Component);
-
 private:
-	
+	UTankAimingComponent* mAimingComponent = nullptr;
 
 	// Raycast using UI element and move the turrer where crosshair intersect
 	void AimTowardsCrosshair();

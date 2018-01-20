@@ -19,9 +19,7 @@ void ATankPlayerController::BeginPlay()
 		UE_LOG(LogTemp, Warning, TEXT("Missing pawn on player controller"));
 		return;
 	}
-	UTankAimingComponent* aimingComponent = mControlledTank->FindComponentByClass<UTankAimingComponent>();
-	if (!ensure(aimingComponent)) { return; }
-	FoundAimingComponent(aimingComponent);
+	mAimingComponent = mControlledTank->FindComponentByClass<UTankAimingComponent>();
 	return;
 }
 
@@ -33,11 +31,11 @@ void ATankPlayerController::Tick(float DeltaTime)
 
 void ATankPlayerController::AimTowardsCrosshair()
 {
-	if (!ensure(mControlledTank)) { return; }
+	if (!ensure(mAimingComponent)) { return; }
 	// Raycast and get world intersection
 	FVector hitLocation;
 	GetSightRayHitLocation(hitLocation);
-	mControlledTank->AimAt(hitLocation);
+	mAimingComponent->AimAt(hitLocation);
 	return;
 }
 
