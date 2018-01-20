@@ -7,24 +7,27 @@
 #include "TankPlayerController.generated.h"	// Must be the last include
 
 class ATank;
+class UTankAimingComponent;
 
+/**
+* Responsible for helping the player aim
+*/
 UCLASS()
 class BATTLETANK_API ATankPlayerController : public APlayerController
 {
 	GENERATED_BODY()
 
 public:
-
+	ATank * mControlledTank = nullptr;
 protected:
 	virtual void BeginPlay() override;
 	virtual void Tick(float DeltaTime) override;
 
-	// Protected, so available to derived BP
-	UFUNCTION(BlueprintCallable, Category = "Setup")
-	ATank* GetControlledTank() const;
+	UFUNCTION(BlueprintImplementableEvent, Category = "Setup")
+	void FoundAimingComponent(UTankAimingComponent* Component);
 
 private:
-	ATank * mControlledTank = nullptr;
+	
 
 	// Raycast using UI element and move the turrer where crosshair intersect
 	void AimTowardsCrosshair();

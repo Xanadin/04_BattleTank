@@ -165,3 +165,6 @@ Prepared binding of crosshair color to reloading status
 
 * Lesson 170
 Refactoring and debugging
+
+* Lesson 177
+Refactoring and debugging (I assume most real projects spend lot of time here)

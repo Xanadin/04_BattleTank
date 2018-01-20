@@ -1,41 +1,39 @@
 // Nessun copyright, sto facendo solo pratica
 
 #include "TankPlayerController.h" // Required as FIRST include in 4.17+ versions
+#include "TankAimingComponent.h"
 #include "Engine/World.h"
 #include "Tank.h"
-
-ATank* ATankPlayerController::GetControlledTank() const
-{
-	auto controlledPawn = GetPawn();
-	if (controlledPawn != nullptr)
-	{
-		ATank* controlledTank = Cast<ATank>(controlledPawn);
-		return controlledTank;
-	}
-	else
-	{
-		UE_LOG(LogTemp, Warning, TEXT("Missing pawn on player controller"));
-		return nullptr;
-	}
-}
 
 void ATankPlayerController::BeginPlay()
 {
 	Super::BeginPlay();
-	mControlledTank = GetControlledTank();
-	
+
+	auto controlledPawn = GetPawn();
+	if (controlledPawn != nullptr)
+	{
+		mControlledTank = Cast<ATank>(controlledPawn);
+	}
+	else
+	{
+		UE_LOG(LogTemp, Warning, TEXT("Missing pawn on player controller"));
+		return;
+	}
+	UTankAimingComponent* aimingComponent = mControlledTank->FindComponentByClass<UTankAimingComponent>();
+	if (!ensure(aimingComponent)) { return; }
+	FoundAimingComponent(aimingComponent);
+	return;
 }
 
 void ATankPlayerController::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
 	AimTowardsCrosshair();
-	
 }
 
 void ATankPlayerController::AimTowardsCrosshair()
 {
-	if (!mControlledTank) return;
+	if (!ensure(mControlledTank)) { return; }
 	// Raycast and get world intersection
 	FVector hitLocation;
 	GetSightRayHitLocation(hitLocation);

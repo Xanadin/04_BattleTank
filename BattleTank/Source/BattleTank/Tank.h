@@ -7,11 +7,8 @@
 #include "Tank.generated.h"	// Must be the last include
 
 class UTankBarrel;
-class UTankTurret;
-class UTankTrack;
 class AProjectile;
 class UTankAimingComponent;
-class UTankMovementComponent;
 
 UCLASS()
 class BATTLETANK_API ATank : public APawn
@@ -34,7 +31,7 @@ protected:
 	UPROPERTY(BlueprintReadOnly)
 	UTankAimingComponent* mTankAimingComponent = nullptr;
 private:	
-
+	// TODO remove once Fire is move to AimingComponent
 	UPROPERTY(EditAnywhere, Category = "Firing")
 	float LaunchSpeed = 4000.0f;
 

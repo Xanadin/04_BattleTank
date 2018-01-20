@@ -18,8 +18,6 @@ protected:
 	virtual void Tick(float DeltaTime) override;
 
 private:
-	ATank* GetControlledTank() const;
-
 	ATank* mControlledTank = nullptr;
 
 	// How close the AI tank can get
