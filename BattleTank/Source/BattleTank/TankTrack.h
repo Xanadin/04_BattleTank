@@ -15,6 +15,9 @@ class BATTLETANK_API UTankTrack : public UStaticMeshComponent
 	GENERATED_BODY()
 	
 public:
+	UTankTrack();
+	
+
 	// Sets a throttle between +1 and -1
 	UFUNCTION(BlueprintCallable, Category = "Input")
 	void SetThrottle(float Throttle);
@@ -22,5 +25,8 @@ public:
 	// Max Force per track in Newton
 	UPROPERTY(EditAnywhere)
 	float mMaxDrivingForce = 40000000;
+
+protected:
+	virtual void TickComponent(float DeltaTime, ELevelTick TickType, FActorComponentTickFunction * ThisTickFunction) override;
 	
 };

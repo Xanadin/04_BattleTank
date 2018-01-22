@@ -171,3 +171,6 @@ Refactoring and debugging (I assume most real projects spend lot of time here)
 
 * Lesson 181
 Finished refactoring and fixed crosshair color change
+
+* Lesson 182
+Corrected slippery movement
