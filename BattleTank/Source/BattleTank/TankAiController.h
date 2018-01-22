@@ -6,7 +6,6 @@
 #include "AIController.h"
 #include "TankAiController.generated.h"	// Must be the last include
 
-class ATank;
 class UTankAimingComponent;
 
 UCLASS()
@@ -19,7 +18,7 @@ protected:
 	virtual void Tick(float DeltaTime) override;
 
 private:
-	ATank* mControlledTank = nullptr;
+	APawn* mControlledPawn = nullptr;
 	UTankAimingComponent* mAimingComponent = nullptr;
 
 	// How close the AI tank can get

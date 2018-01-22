@@ -2,31 +2,34 @@
 
 #include "TankAiController.h" // Required as FIRST include in 4.17+ versions
 #include "Engine/World.h"
-#include "Tank.h"
 #include "TankAimingComponent.h"
 // Depends on the movement controller via pathfinding
 
 void ATankAiController::BeginPlay()
 {
 	Super::BeginPlay();
-	auto controlledPawn = GetPawn();
-	if (controlledPawn != nullptr)
+	mControlledPawn = GetPawn();
+	if (mControlledPawn != nullptr)
 	{
-		mControlledTank = Cast<ATank>(controlledPawn);
+		mAimingComponent = mControlledPawn->FindComponentByClass<UTankAimingComponent>();
+		if (mAimingComponent == nullptr)
+		{
+			UE_LOG(LogTemp, Warning, TEXT("Missing pawn on AI controller"));
+		}
 	}
 	else
 	{
-		UE_LOG(LogTemp, Warning, TEXT("Missing pawn on AI controller"));
+		UE_LOG(LogTemp, Warning, TEXT("Missing AimingComponent on AI controller"));
 	}
-	mAimingComponent = mControlledTank->FindComponentByClass<UTankAimingComponent>();
 	return;
 }
 
 void ATankAiController::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
-	if (!ensure(mAimingComponent) || !ensure(mControlledTank)) return;
-	ATank* playerTank = Cast<ATank>(GetWorld()->GetFirstPlayerController()->GetPawn());
+	if (!ensure(mAimingComponent)) { return; }
+	if (!ensure(mControlledPawn)) { return; }
+	auto playerTank = GetWorld()->GetFirstPlayerController()->GetPawn();
 	if (playerTank)
 	{
 		// Move towards the player
@@ -34,7 +37,7 @@ void ATankAiController::Tick(float DeltaTime)
 
 		// Fire at player
 		mAimingComponent->AimAt(playerTank->GetActorLocation());
-		mControlledTank->Fire(); // TODO don't fire every frame
+		mAimingComponent->Fire(); // TODO don't fire every frame
 	}
 	return;
 }

@@ -6,7 +6,6 @@
 #include "GameFramework/PlayerController.h"
 #include "TankPlayerController.generated.h"	// Must be the last include
 
-class ATank;
 class UTankAimingComponent;
 
 /**
@@ -18,12 +17,16 @@ class BATTLETANK_API ATankPlayerController : public APlayerController
 	GENERATED_BODY()
 
 public:
-	ATank * mControlledTank = nullptr;
+	
 protected:
 	virtual void BeginPlay() override;
 	virtual void Tick(float DeltaTime) override;
 
+	UFUNCTION(BlueprintImplementableEvent, Category = "Setup")
+	void PassAimingComponent(UTankAimingComponent* AimingComponent);
+
 private:
+	APawn * mControlledPawn = nullptr;
 	UTankAimingComponent* mAimingComponent = nullptr;
 
 	// Raycast using UI element and move the turrer where crosshair intersect
@@ -41,6 +44,5 @@ private:
 	UPROPERTY(EditDefaultsOnly)
 	float LineTraceRange = 1000000.0f;
 
-	bool GetLookDirection(FVector2D ScreenLocation, FVector& LookDirection) const;
-	bool GetLookVectorHitLocation(FVector LookDirection, FVector& HitLocation) const;
+	bool GetLookVectorHitLocation(FVector2D ScreenLocation, FVector& HitLocation) const;
 };
