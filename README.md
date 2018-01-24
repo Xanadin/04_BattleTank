@@ -174,3 +174,6 @@ Finished refactoring and fixed crosshair color change
 
 * Lesson 182
 Corrected slippery movement
+
+* Lesson 183
+Registered Hit events in C++
