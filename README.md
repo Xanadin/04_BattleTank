@@ -177,3 +177,6 @@ Corrected slippery movement
 
 * Lesson 183
 Registered Hit events in C++
+
+* Lesson 184
+Improved tank movement

@@ -1,10 +1,11 @@
 // Nessun copyright, sto facendo solo pratica
 
 #include "TankTrack.h" // Required as FIRST include in 4.17+ versions
+#include "Engine/World.h"
 
 UTankTrack::UTankTrack()
 {
-	PrimaryComponentTick.bCanEverTick = true;
+	PrimaryComponentTick.bCanEverTick = false;
 }
 
 void UTankTrack::BeginPlay()
@@ -13,28 +14,23 @@ void UTankTrack::BeginPlay()
 	OnComponentHit.AddDynamic(this, &UTankTrack::OnHit);
 }
 
-void UTankTrack::TickComponent(float DeltaTime, ELevelTick TickType, FActorComponentTickFunction * ThisTickFunction)
+void UTankTrack::OnHit(UPrimitiveComponent * HitComponent, AActor * OtherActor, UPrimitiveComponent * OtherComponent, FVector NormalImpulse, const FHitResult & Hit)
 {
-	Super::TickComponent(DeltaTime, TickType, ThisTickFunction);
 	// Calculate sideways slippage speed
 	float slippageSpeed = FVector::DotProduct(GetComponentVelocity(), GetRightVector());
 	// Work-out the required acceleration this frame to correct
-	FVector correctionAcceleration = - (slippageSpeed / DeltaTime) * GetRightVector();
+	auto deltaTime = GetWorld()->GetDeltaSeconds();
+	FVector correctionAcceleration = -(slippageSpeed / deltaTime) * GetRightVector();
 	auto bpRootComponent = Cast<UStaticMeshComponent>(GetOwner()->GetRootComponent());
-	FVector correctionForce = ( bpRootComponent->GetMass() / 2 ) * correctionAcceleration; // 2 Tracks
+	FVector correctionForce = (bpRootComponent->GetMass() / 2) * correctionAcceleration; // 2 Tracks
 	bpRootComponent->AddForce(correctionForce);
-	// Calculate and apply sideways force
-	return;
-}
-
-void UTankTrack::OnHit(UPrimitiveComponent * HitComponent, AActor * OtherActor, UPrimitiveComponent * OtherComponent, FVector NormalImpulse, const FHitResult & Hit)
-{
-	UE_LOG(LogTemp, Warning, TEXT("Collision hit registered"));
+	
+	mCurrentThrottle = 0.0f;
 }
 
 void UTankTrack::SetThrottle(float Throttle)
 {
-	// TODO clamp actual throttle value
+	mCurrentThrottle = FMath::Clamp<float>(mCurrentThrottle + Throttle, -1, +1);
 	FVector forceApplied = GetForwardVector() * Throttle * mMaxDrivingForce;
 	FVector forceLocation = GetComponentLocation();
 	UPrimitiveComponent* tankRoot = Cast<UPrimitiveComponent>(GetOwner()->GetRootComponent());
