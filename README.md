@@ -180,3 +180,6 @@ Registered Hit events in C++
 
 * Lesson 184
 Improved tank movement
+
+* Lesson 185
+Improved tank aiming

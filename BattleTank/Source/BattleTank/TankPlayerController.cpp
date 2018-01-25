@@ -39,7 +39,8 @@ void ATankPlayerController::AimTowardsCrosshair()
 	if (!ensure(mAimingComponent)) { return; }
 	// Raycast and get world intersection
 	FVector hitLocation;
-	if (GetSightRayHitLocation(hitLocation))
+	bool canShootAtLocation = GetSightRayHitLocation(hitLocation);
+	if (canShootAtLocation)
 	{
 		mAimingComponent->AimAt(hitLocation);
 	}
