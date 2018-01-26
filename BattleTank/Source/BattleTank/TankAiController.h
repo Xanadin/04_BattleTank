@@ -17,10 +17,13 @@ protected:
 	virtual void BeginPlay() override;
 	virtual void Tick(float DeltaTime) override;
 
+	// How close the AI tank can get
+	UPROPERTY(EditDefaultsOnly, Category = "Movement")
+	float mAcceptanceRadius = 5000.0f;
+
 private:
 	APawn* mControlledPawn = nullptr;
 	UTankAimingComponent* mAimingComponent = nullptr;
 
-	// How close the AI tank can get
-	float mAcceptanceRadius = 3000;
+	
 };

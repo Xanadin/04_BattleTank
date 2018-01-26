@@ -183,3 +183,6 @@ Improved tank movement
 
 * Lesson 185
 Improved tank aiming
+
+* Lesson 187
+Changed UI with ammo count
