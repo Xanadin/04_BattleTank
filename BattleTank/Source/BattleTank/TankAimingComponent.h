@@ -39,7 +39,7 @@ public:
 	void Fire();
 
 	UFUNCTION(BlueprintCallable, Category = "Setup")
-	void InitComponent();
+	void InitComponent(UTankBarrel* Barrel, UTankTurret* Turret);
 
 	EFiringStatus GetFiringStatus() const;
 

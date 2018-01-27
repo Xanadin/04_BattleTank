@@ -186,3 +186,6 @@ Improved tank aiming
 
 * Lesson 187
 Changed UI with ammo count
+
+* Lesson 188
+Made mortar reusing tank components

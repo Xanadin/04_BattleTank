@@ -24,10 +24,10 @@ void UTankAimingComponent::BeginPlay()
 	mLastFireTime = FPlatformTime::Seconds();
 }
 
-void UTankAimingComponent::InitComponent()
+void UTankAimingComponent::InitComponent(UTankBarrel* Barrel, UTankTurret* Turret)
 {
-	mTurret = GetOwner()->FindComponentByClass<UTankTurret>();
-	mBarrel = GetOwner()->FindComponentByClass<UTankBarrel>();
+	mBarrel = Barrel;
+	mTurret = Turret;
 }
 
 EFiringStatus UTankAimingComponent::GetFiringStatus() const
@@ -66,6 +66,7 @@ void UTankAimingComponent::TickComponent(float DeltaTime, ELevelTick TickType, F
 void UTankAimingComponent::AimAt(FVector HitLocation)
 {
 	FVector launchVelocity;
+	if (!ensure(mBarrel)) { return; }
 	FVector startLocation = mBarrel->GetSocketLocation(FName(TEXT("Projectile")));
 	bool bHaveAimSolution = UGameplayStatics::SuggestProjectileVelocity(this,
 																		launchVelocity,
@@ -103,7 +104,6 @@ void UTankAimingComponent::MoveBarrel(FVector AimVector)
 	
 	if (yaw >= 180) { yaw -= 360; }
 	if (yaw <= -180) { yaw += 360; }
-	UE_LOG(LogTemp, Warning, TEXT("Yaw : %f"), yaw);
 	mTurret->Rotate(yaw);
 }
 
