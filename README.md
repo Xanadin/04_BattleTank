@@ -189,3 +189,6 @@ Changed UI with ammo count
 
 * Lesson 188
 Made mortar reusing tank components
+
+* Lesson 190
+Made blueprint derived from C++ projectile class

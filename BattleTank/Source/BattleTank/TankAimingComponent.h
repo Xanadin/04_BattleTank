@@ -44,7 +44,7 @@ public:
 	EFiringStatus GetFiringStatus() const;
 
 	UFUNCTION(BlueprintCallable, Category = "Firing")
-	int GetAmmo() const;
+	int32 GetAmmo() const;
 
 protected:
 
@@ -67,10 +67,11 @@ private:
 	UPROPERTY(EditAnywhere, Category = "Firing") // EditAnywhere means you can have different values on individual instances
 	float mReloadTimeInSeconds = 3;
 
+	UPROPERTY(EditDefaultsOnly, Category = "Firing")
+	int32 mAmmo = 3;
+
 	void MoveBarrel(FVector AimVector);
 
 	double mLastFireTime = 0;
 	FVector mAimDirection = FVector::ZeroVector;
-
-	int mAmmo = 3;
 };
