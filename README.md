@@ -198,3 +198,6 @@ Added particle effect to smoke trail
 
 * Lesson 193
 Added inpact blast on hit for projectiles
+
+* Lesson 194
+Added radial impulse on hit to projectile
