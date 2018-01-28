@@ -195,3 +195,6 @@ Made blueprint derived from C++ projectile class
 
 * Lesson 191
 Added particle effect to smoke trail
+
+* Lesson 193
+Added inpact blast on hit for projectiles
