@@ -204,3 +204,6 @@ Added radial impulse on hit to projectile
 
 * Lesson 195
 Catch timer on projectile to destroy it after some delay
+
+* Lesson 196
+Implemented projectile damage and tank health

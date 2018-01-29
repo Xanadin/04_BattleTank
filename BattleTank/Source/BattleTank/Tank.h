@@ -16,7 +16,11 @@ public:
 	ATank();
 
 protected:
+	virtual float TakeDamage(float DamageAmount, struct FDamageEvent const & DamageEvent, class AController * EventInstigator, AActor * DamageCauser) override;
 
-private:	
+	UPROPERTY(EditAnywhere, Category = "Setup")
+	int32 mStartingHealth = 100.0f;
 
+private:
+	int32 mCurrentHealth = mStartingHealth;
 };
