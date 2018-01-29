@@ -36,6 +36,10 @@ protected:
 	UPROPERTY(VisibleAnywhere, Category = "Components")
 	URadialForceComponent* mExplosionForce = nullptr;
 
+	UPROPERTY(EditDefaultsOnly, Category = "Timer")
+	float mDestroyDelay = 3.0f;
+
+	void DestroyProjectile();
 public:	
 
 	void LaunchProjectile(float Speed);	

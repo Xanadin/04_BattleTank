@@ -4,6 +4,8 @@
 #include "GameFramework/ProjectileMovementComponent.h"
 #include "Components/StaticMeshComponent.h"
 #include "Particles/ParticleSystemComponent.h"
+#include "Engine/World.h"
+#include "TimerManager.h"
 
 // Sets default values
 AProjectile::AProjectile()
@@ -54,6 +56,17 @@ void AProjectile::OnHit(UPrimitiveComponent * HitComponent, AActor * OtherActor,
 	mInpactBlast->Activate();
 	if (!ensure(mExplosionForce)) { return; }
 	mExplosionForce->FireImpulse();
+	SetRootComponent(mInpactBlast);
+	if (!ensure(mCollisionMesh)) { return; }
+	mCollisionMesh->DestroyComponent();
+
+	FTimerHandle timerHandle;
+	GetWorld()->GetTimerManager().SetTimer(timerHandle, this, &AProjectile::DestroyProjectile, mDestroyDelay);
 	return;
+}
+
+void AProjectile::DestroyProjectile()
+{
+	Destroy();
 }
 

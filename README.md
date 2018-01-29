@@ -201,3 +201,6 @@ Added inpact blast on hit for projectiles
 
 * Lesson 194
 Added radial impulse on hit to projectile
+
+* Lesson 195
+Catch timer on projectile to destroy it after some delay
