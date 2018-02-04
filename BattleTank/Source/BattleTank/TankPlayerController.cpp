@@ -3,6 +3,7 @@
 #include "TankPlayerController.h" // Required as FIRST include in 4.17+ versions
 #include "TankAimingComponent.h"
 #include "Engine/World.h"
+#include "Tank.h"
 
 void ATankPlayerController::BeginPlay()
 {
@@ -32,6 +33,11 @@ void ATankPlayerController::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
 	AimTowardsCrosshair();
+}
+
+void ATankPlayerController::OnTankDeath()
+{
+	StartSpectatingOnly();
 }
 
 void ATankPlayerController::AimTowardsCrosshair()
@@ -75,4 +81,17 @@ bool ATankPlayerController::GetLookVectorHitLocation(FVector2D ScreenLocation, F
 	}
 	HitLocation = FVector::ZeroVector;
 	return false;
+}
+
+void ATankPlayerController::SetPawn(APawn * InPawn)
+{
+	Super::SetPawn(InPawn);
+	if (InPawn)
+	{
+		// Subscribe our local method to the tank's death
+		auto possessedTank = Cast<ATank>(InPawn);
+		if (!ensure(possessedTank)) { return; }
+		possessedTank->OnDeath.AddUniqueDynamic(this, &ATankPlayerController::OnTankDeath);
+	}
+	return;
 }

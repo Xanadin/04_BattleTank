@@ -207,3 +207,6 @@ Catch timer on projectile to destroy it after some delay
 
 * Lesson 196
 Implemented projectile damage and tank health
+
+* Lesson 200
+Implemented death events for AI and Player. Wrap up for now

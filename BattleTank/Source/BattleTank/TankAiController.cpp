@@ -3,6 +3,7 @@
 #include "TankAiController.h" // Required as FIRST include in 4.17+ versions
 #include "Engine/World.h"
 #include "TankAimingComponent.h"
+#include "Tank.h"
 // Depends on the movement controller via pathfinding
 
 void ATankAiController::BeginPlay()
@@ -42,6 +43,24 @@ void ATankAiController::Tick(float DeltaTime)
 			mAimingComponent->Fire();
 		}
 		
+	}
+	return;
+}
+
+void ATankAiController::OnTankDeath()
+{
+	GetPawn()->DetachFromControllerPendingDestroy();
+}
+
+void ATankAiController::SetPawn(APawn * InPawn)
+{
+	Super::SetPawn(InPawn);
+	if (InPawn)
+	{
+		// Subscribe our local method to the tank's death
+		auto possessedTank = Cast<ATank>(InPawn);
+		if (!ensure(possessedTank)) { return; }
+		possessedTank->OnDeath.AddUniqueDynamic(this, &ATankAiController::OnTankDeath);
 	}
 	return;
 }

@@ -25,6 +25,9 @@ protected:
 	UFUNCTION(BlueprintImplementableEvent, Category = "Setup")
 	void PassAimingComponent(UTankAimingComponent* AimingComponent);
 
+	UFUNCTION()
+	void OnTankDeath();
+
 private:
 	APawn * mControlledPawn = nullptr;
 	UTankAimingComponent* mAimingComponent = nullptr;
@@ -45,4 +48,6 @@ private:
 	float LineTraceRange = 1000000.0f;
 
 	bool GetLookVectorHitLocation(FVector2D ScreenLocation, FVector& HitLocation) const;
+
+	virtual void SetPawn(APawn* InPawn) override;
 };

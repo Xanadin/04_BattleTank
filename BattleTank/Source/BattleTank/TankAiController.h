@@ -21,9 +21,12 @@ protected:
 	UPROPERTY(EditDefaultsOnly, Category = "Movement")
 	float mAcceptanceRadius = 5000.0f;
 
+	UFUNCTION()
+	void OnTankDeath();
+
 private:
 	APawn* mControlledPawn = nullptr;
 	UTankAimingComponent* mAimingComponent = nullptr;
 
-	
+	virtual void SetPawn(APawn* InPawn) override;
 };
